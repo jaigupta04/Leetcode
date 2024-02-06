@@ -1,42 +1,33 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-void sortColors( vector<int>& nums ) {
-    int arr[3] = {0};
-    int j = 0;
-    
-    for( int i = 0; i < nums.size(); i++ ){
-        if( nums[i] == 0 ) arr[0]++;
-        else if( nums[i] == 1 ) arr[1]++;
-        else arr[2]++;
+void sortColors(vector<int>& nums) {
+    int counts[3] = {0};
+
+    for (int num : nums) {
+        counts[num]++;
     }
-    
-    while( arr[0] != 0 ) {
-        nums[j] = 0;
-        j++;
-        arr[0]--;
+
+    int index = 0;
+    for (int color = 0; color <= 2; color++) {
+        while (counts[color] > 0) {
+            nums[index] = color;
+            index++;
+            counts[color]--;
+        }
     }
-    while( arr[1] != 0 ) {
-        nums[j] = 1;
-        j++;
-        arr[1]--;
+
+    // Print the sorted array
+    for (int num : nums) {
+        cout << num << "\t";
     }
-    while( arr[2] != 0 ) {
-        nums[j] = 2;
-        j++;
-        arr[2]--;
-    }
-    
-    for( int i = 0; i < nums.size(); i++ ){
-        cout << nums[i] << "\t";
-    }
-    
 }
 
 int main() {
-    vector<int> nums = {2,0,1};
-    sortColors( nums );
+    vector<int> nums = {2, 0, 1};
+    sortColors(nums);
 
     return 0;
 }
