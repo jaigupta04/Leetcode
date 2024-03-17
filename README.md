@@ -8,4 +8,5 @@
 | 76       | Set Matrix Zeros          |
 | 88       | Merge Sorted Array        |
 | 118      | Pascal's Triangle         |
+| 169      | Majority Element          |
 | 287      | Find the Duplicate Number |       
